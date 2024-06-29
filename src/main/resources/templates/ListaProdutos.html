@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width" />
+    <title>Lista de Produtos</title>
+    <link th:href="@{/webjars/bootstrap/5.3.3/css/bootstrap.min.css}"
+          rel="stylesheet"/>
+    <link th:href="@{/webjars/bootstrap/5.3.3/css/bootstrap-theme.min.css}"
+          rel="stylesheet"/>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-1">
+            </div>
+            <div class="col-10">
+                <h1>opa</h1>
+                <table id="example" class="table table-striped" style="width:100%">
+                    <thead>
+                    <tr class="align-items-center">
+                        <th>SKU</th>
+                        <th>NOME</th>
+                        <th>CONDICAO</th>
+                        <th>MARCA</th>
+                        <th>PREÇO</th>
+                        <th>QTD EM ESTOQUE</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="produto : ${produtos}">
+                        <td th:text="${produto.id}" ></td>
+                        <td th:text="${produto.nome}"></td>
+                        <td th:text="${produto.condicao}"></td>
+                        <td th:text="${produto.marca}"></td>
+                        <td th:text="${produto.preco}"></td>
+                        <td th:text="${produto.quantidade}"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
