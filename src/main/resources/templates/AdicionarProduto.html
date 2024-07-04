@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:th="http://www.thymeleaf.org">
+        lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <form class="form-inline" method="POST" th:object="${produto}" th:action="@{/adicionarproduto}"  style="margin: 20px 0">
+  <div class="form-group">
+    <input type="text" class="form-control" placeholder="Nome" th:field="*{nome}"/>
+    <input type="text" class="form-control" placeholder="Condição" th:field="*{condicao}"/>
+    <input type="text" class="form-control" placeholder="Quantidade" th:field="*{quantidade}"/>
+    <input type="text" class="form-control" placeholder="Marca" th:field="*{marca}"/>
+    <input type="text" class="form-control" placeholder="preço" th:field="*{preco}"/>
+
+    <button type="submit"
+            class="btn btn-primary">Adicionar
+    </button>
+  </div>
+</body>
+</html>
