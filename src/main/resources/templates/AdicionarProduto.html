@@ -1,71 +1,68 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-
 <!--Chama o template do base.html-->
-
 <head th:replace="~{base :: head}"></head>
-
+<title>Adicionar Produto</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+<link rel="stylesheet" href="./cadastro.css">
 <body>
-    <div class="container">
-        <!--Chama o template do base.html-->
-        <aside th:replace="~{base :: menu}"></aside>
-        <div class="text">
-            Adicionar Produto
+<div class="container">
+  <div class="text">
+     Adicionar Produto
+  </div>
+  <form method="POST" th:object="${produto}" th:action="@{/adicionarproduto}">
+     <div class="form-row">
+        <div class="input-data">
+           <input type="text" th:field="*{nome}" required>
+           <div class="underline"></div>
+           <label for="">Nome</label>
         </div>
-        <form action="#">
-            <div class="form-row">
-                <div class="input-data">
-                    <input type="text" required>
-                    <div class="underline"></div>
-                    <label for="">Nome</label>
-                </div>
-                <div class="input-data">
-                    <select name="condicao" id="condicao" required>
-                        <option value="" disabled selected hidden></option>
-                        <option value="novo">Novo</option>
-                        <option value="usado">Usado</option>
-                    </select>
-                    <div class="underline"></div>
-                    <label for="condicao">Condição</label>
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="input-data">
-                    <input type="number" required>
-                    <div class="underline"></div>
-                    <label for="">Quantidade</label>
-                </div>
-                <div class="input-data">
-                    <input type="text" required>
-                    <div class="underline"></div>
-                    <label for="">Marca</label>
-                </div>
-                <div class="input-data">
-                    <input type="number" step="0.01" name="quantity" min="0.01" required>
-                    <div class="underline"></div>
-                    <label for="">Preço Unitario</label>
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="input-data textarea">
-                    <textarea rows="8" cols="80" required></textarea>
-                    <br />
-                    <div class="underline"></div>
-                    <label for="">Descrição</label>
-                    <br />
-                </div>
-                <div class="form-row submit-btn">
-                    <div class="input-data">
-                        <div class="inner"></div>
-                        <input type="submit" value="submit">
-                    </div>
-                </div>
-            </div>
-        </form>
-        <footer th:replace="~{base :: footer}"></footer>
-    </div>
-    <!--Chama os scripts do menu lateral-->
-    <script th:src="@{js/menu.js}"></script>
+        
+        <div class="input-data">
+           <select name="condicao" id="condicao" th:field="*{condicao}" required>
+              <option value="" disabled selected hidden></option>
+              <option value="novo"></option>
+              <option value="novo">Novo</option>
+              <option value="usado">Usado</option>
+           </select>
+           <div class="underline"></div>
+           <label for="condicao">Condição</label>
+        </div>
+     </div>
+     <div class="form-row">
+        <div class="input-data">
+           <input type="number" th:field="*{quantidade}" required>
+           <div class="underline"></div>
+           <label for="">Quantidade</label>
+        </div>
+        <div class="input-data">
+           <input type="text"  th:field="*{marca}" required>
+           <div class="underline"></div>
+           <label for="">Marca</label>
+        </div>
+        <div class="input-data">
+           <input type="number" step="0.01" name="preco" min="0.01" th:field="*{preco}" required>
+           <div class="underline"></div>
+           <label for="">Preço Unitário</label>
+        </div>
+     </div>
+     <div class="form-row">
+       <div class="input-data textarea">
+          <textarea rows="8" cols="80" required></textarea>
+          <div class="underline"></div>
+          <label for="">Descrição</label>
+       </div>
+     </div>
+     <div class="form-row submit-btn">
+        <div class="input-data">
+           <div class="inner"></div>
+           <input type="submit" value="Enviar">
+        </div>
+     </div>
+  </form>
+  <footer th:replace="~{base :: footer}"></footer>
+</div>
+<!--Chama os scripts do menu lateral-->
+<script th:src="@{js/menu.js}"></script>
 </body>
-
 </html>
